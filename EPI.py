@@ -5,9 +5,7 @@ from bs4 import BeautifulSoup
 
 class EPI:
   ca = ''
-
   linhasTabela = []
-
   epiJSON = {}
 
   def __init__(self,  ca):
