@@ -4,9 +4,7 @@ from flask import Flask, json
 import flask
 
 app = Flask(__name__)
-epi = EPI(44545)
 
-print(epi.receberEPI())
 @app.route('/')
 def ola_mundo():
     return 'Ola, flask'
