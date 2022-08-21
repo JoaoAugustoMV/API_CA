@@ -1,7 +1,6 @@
 import re
 from EPI import  EPI
 from flask import Flask, json
-import flask
 
 app = Flask(__name__)
 

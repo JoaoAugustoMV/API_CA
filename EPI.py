@@ -2,7 +2,6 @@
 #
 import requests
 from bs4 import BeautifulSoup
-import bs4
 
 
 class EPI:
