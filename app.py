@@ -8,7 +8,9 @@ app = Flask(__name__)
 print(flask.__version__)
 @app.route('/')
 def ola_mundo():
-    return 'Ola, flask'
+    epi = EPI(44545)
+    return json.jsonify(epi.receberEPI())
+    
 
 # <ca> = Numero do ca passado como parametro no URL
 @app.route('/api/ca/<ca>', methods=['GET'])
