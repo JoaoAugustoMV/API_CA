@@ -1,9 +1,11 @@
 import re
 from EPI import  EPI
 from flask import Flask, json
+import flask
 
 app = Flask(__name__)
 
+print(flask.__version__)
 @app.route('/')
 def ola_mundo():
     return 'Ola, flask'
