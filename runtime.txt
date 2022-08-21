@@ -1,2 +1,2 @@
 touch runtime.txt 
-python-3.9.4
+python-3.10.6
