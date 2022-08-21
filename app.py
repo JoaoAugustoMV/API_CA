@@ -4,13 +4,12 @@ from flask import Flask, json
 import flask
 
 app = Flask(__name__)
+epi = EPI(44545)
 
-print(flask.__version__)
+print(epi.receberEPI())
 @app.route('/')
 def ola_mundo():
-    epi = EPI(44545)
-    return json.jsonify(epi.receberEPI())
-    
+    return 'Ola, flask'
 
 # <ca> = Numero do ca passado como parametro no URL
 @app.route('/api/ca/<ca>', methods=['GET'])
