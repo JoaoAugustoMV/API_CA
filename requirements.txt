@@ -1,0 +1,22 @@
+beautifulsoup4==4.11.1
+bs4==0.0.1
+certifi==2022.6.15.1
+charset-normalizer==2.1.1 #2.27.1
+click==8.0.4
+colorama==0.4.5
+Flask==2.0.3
+google==3.0.0
+gunicorn==19.3.0
+idna==3.3
+itsdangerous==2.0.1
+Jinja2==3.0.3
+MarkupSafe==2.0.1
+numpy==1.19.5
+pandas==1.1.5
+python-dateutil==2.8.2
+pytz==2022.2.1
+requests==2.27.1
+six==1.16.0
+soupsieve==2.3.2.post1
+urllib3==1.26.12
+Werkzeug==2.0.3
