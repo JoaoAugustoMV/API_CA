@@ -20,38 +20,35 @@ class EPI:
     return box_result
 
   def padraoString(self, string):
-    print("string", string)
     return unicodedata.normalize('NFD', string).encode('ascii', 'ignore').decode('utf8')
 
   def retornarJSON(self):
     box_result = self.retornarBoxResult(self.ca)
     brs = box_result.find_all('br') 
-    pegarTexto = ['Situação', 'Validade', 'Razão Social', 'Razão Social Importador', 'Site', 'N° do Laudo'] # Atributo que estão dentro de outra tag 
+    # pegarTexto = ['Situação', 'Validade', 'Razão Social', 'Razão Social Importador', 'Site', 'N° do Laudo'] # Atributo que estão dentro de outra tag 
     ignorarCampo = ["CA's"]
     json = {} # Dicionario 
     for br in brs[3:]:
       chave = br.previous.replace(':', '') 
-      print("chave = br.previous.replace(':', '') ", chave)
       valor = br.nextSibling
       if(chave in ignorarCampo):
         continue
-      if(chave in pegarTexto): 
-        try:
-
-          valor = valor.getText()
-        except:
-          return "Erro inesperado"
+      # if(chave in pegarTexto): 
+      try:
+        valor = valor.getText()
+      except:
+        return "Erro inesperado"
 
       if ('Declaro' in br.previous): # Acabar com a raspagem
         break
       chave = self.padraoString(chave)
-      print("chave = self.padraoString(chave)", chave)
       try:
         valor = self.padraoString(valor)
-      except:
-        print("except ca e valor", self.ca, valor)
+      except: # Alguns
         valor = valor.getText()
         valor = self.padraoString(valor)
+        if (chave == 'SituaAAo'):
+          chave == 'Situacao'
       
       json[chave] = valor
     json['Equipamento'] = box_result.find('h1').getText()
