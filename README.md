@@ -11,7 +11,7 @@ API Rest para consulta de CA (Certificado de Aprovação) de um EPI (Equipamento
  
  # Consumir
  
-- https://teste-api-ca.rj.r.appspot.com/api/ca/{NumeroCAPretendido}
+- https://projeto-ca-api.rj.r.appspot.com//api/ca/{NumeroCAPretendido}
   - Basta inserir o número do CA do EPI escolhido no lugar de **NumeroCAPretendido**
   - Será retornado um **JSON**, com a seguinte estrutura:
     ```json
