@@ -1,11 +1,9 @@
-runtime: python # ---------27
-env: flex
+runtime: python37 # ---------27
+
 entrypoint: gunicorn -b :$PORT app:app
-runtime_config:
-  python_version: 3.7
-api_version: 1
-threadsafe: true
 
 handlers:
 - url: /.*
   script: app.app
+
+  
