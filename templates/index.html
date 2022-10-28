@@ -5,46 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CA - API</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>CA - API</h1>
-    <p>API Rest para consulta de CA (Certificado de Aprovação) de um EPI (Equipamento de Proteção Individual), necessário para a venda e utilização de EPI's, dado pelo Ministerio do Trabalho</p>
+    <p>API Rest para consulta de CA (Certificado de Aprovação) de um EPI (Equipamento de Proteção Individual), necessário para a venda e utilização de EPI's, dado pelo Ministerio do Trabalho.</p>
 
+    <hr>
     <h2>Consumir</h2>
-    <p><a href="https://teste-api-ca.rj.r.appspot.com/api/ca/{NumeroCAPretendido}">https://teste-api-ca.rj.r.appspot.com/api/ca/{NumeroCAPretendido}</a></p>
+    <p><a target='_blank' href="https://projeto-ca-api.rj.r.appspot.com/api/ca/{NumeroCAPretendido}">https://projeto-ca-api.rj.r.appspot.com/api/ca/{NumeroCAPretendido}</a></p>
     <p>
         Basta inserir o número do CA do EPI escolhido no lugar de NumeroCAPretendido
         Será retornado um JSON, com a seguinte estrutura:
 
-        <code>
-            <br>
-            {
-                <br>
-            
-                <p style="margin-left: 20px;">
-                    "Aprovadopara":"string", - Situação ou ambiente adequado   para o EPI <br>
-                    "CA":"string", - Numero do CA <br>
-                    "Cor":"string", <br>
-                    "DatadeValidade":"string", <br>
-                    "DescriçãoEquipamento": "string", <br>
-                    "Equipamento": "string", - Nome do equipamento <br>
-                    "Marcacao": "string", - Onde no EPI está escrito o CA <br>
-                    "Natureza": "string", - Nacional ou Importado <br>
-                    "Observação": "string.", <br>
-                    "RazãoSocial": "string ", - Empresa fabricante ou   importadora <br>
-                    "Referência": "string", <br>
-                    "Restrição": "string ", - Onde não pode ser usado <br>
-                    "Situação": "string", - Aprovado ou Vencido <br>
-                    "Tamanho": "string" <br>
-                </p>
-            }
-        </code> <br><br>
+        <div id="json">
+            <code>
+                {            
+                    <p style="margin-left: 20px;">
+                        "Aprovadopara":"string", - Situação ou ambiente adequado   para o EPI <br>
+                        "CA":"string", - Numero do CA <br>
+                        "Cor":"string", <br>
+                        "DatadeValidade":"string", <br>
+                        "DescriçãoEquipamento": "string", <br>
+                        "Equipamento": "string", - Nome do equipamento <br>
+                        "Marcacao": "string", - Onde no EPI está escrito o CA <br>
+                        "Natureza": "string", - Nacional ou Importado <br>
+                        "Observação": "string.", <br>
+                        "RazãoSocial": "string ", - Empresa fabricante ou   importadora <br>
+                        "Referência": "string", <br>
+                        "Restrição": "string ", - Onde não pode ser usado <br>
+                        "Situação": "string", - Aprovado ou Vencido <br>
+                        "Tamanho": "string" <br>
+                    </p>
+                }
+            </code>
+        </div> 
 
         <p>OBS: Nem todos EPI possuem todos os campos</p>
-        <p>OBS2: As informações são retiradas do site <a href="https://consultaca.com/">https://consultaca.com</a>, pois não há (pelo menos não achei) nenhuma fonte de dados oficiais do governo brasileiro, além do site <a href="http://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx">http://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx</a>, que é extremamente lento, o que tornaria a API pouco eficaz</p>
+        <p>OBS2: As informações são retiradas do site <a target='_blank' href="https://consultaca.com/">https://consultaca.com</a>, pois não há (pelo menos não achei) nenhuma fonte de dados oficiais do governo brasileiro, além do site <a target='_blank' href="http://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx">http://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx</a>, que é extremamente lento, o que tornaria a API pouco eficaz</p>
         
     </p>
-    <h2>Repositorio Github</h2>
-    <p><a href="https://github.com/JoaoAugustoMV/API_CA">Github</a></p>
+    <hr>
+    <h2><a target='_blank'  href="https://github.com/JoaoAugustoMV/API_CA">Repositorio Github</a></h2>
+    
 </body>
 </html>
