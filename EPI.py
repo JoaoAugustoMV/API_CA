@@ -21,7 +21,7 @@ class EPI:
 
     return self.linhasTabela
 
-  def receberEPI(self):
+  def retornarJSON(self):
     self.receberLinhasTabela()
     for linha in self.linhasTabela:
         if (linha.td):
