@@ -4,7 +4,7 @@ API simples para consultar de forma rápida o CA(Certificado de Aprovação), da
 # Stack
 
 - Python
-<<<<<<< HEAD
+
   - BeautifulSoup: Para Web Scrapping da pagina https://meuca.com.br/
   - Flask: Para aplicação Web
   
@@ -16,7 +16,7 @@ API simples para consultar de forma rápida o CA(Certificado de Aprovação), da
   - BeautifulSoup: Lib para Web Scrapping da pagina https://consultaca.com/
   - Flask: Lib para Aplicação Web
   
-<<<<<<< HEAD
+
         "Aprovadopara":"string",
         "CA":"string",
         "Cor":"string",
