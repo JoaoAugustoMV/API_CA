@@ -18,7 +18,7 @@ API simples para consultar de forma rápida o CA(Certificado de Aprovação), da
         "Aprovadopara":"string",
         "CA":"string",
         "Cor":"string",
-        "DatadeValidade":"string",
+        "DatadeValidade":"string", 
         "DescriçãoEquipamento": "string",
         "Equipamento": "string",
         "Natureza": "string",
