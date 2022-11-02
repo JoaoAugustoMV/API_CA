@@ -51,6 +51,6 @@ API simples para consultar de forma rápida o CA(Certificado de Aprovação), da
       }
       ```
   - OBS: Nem todos EPI possuem todos os campos
-  - OBS2: As informações são retiradas do site https://consultaca.com/, pois não há (pelo menos não achei) nenhuma fonte de dados oficiais do governo brasileiro, além do site http://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx, que é extremamente lento, o que tornaria a API pouco eficaz
+  - OBS2: As informações são retiradas do site https://consultaca.com/ atraves de Webscrapping, pois não há (pelo menos não achei) nenhuma fonte de dados oficiais do governo brasileiro, além do site http://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx, que é extremamente lento, o que tornaria a API pouco eficaz
 
 >>>>>>> e6d21ddf038cc30040fbf09e4a36492576f856ca
