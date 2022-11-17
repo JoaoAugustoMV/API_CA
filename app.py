@@ -7,8 +7,6 @@ app = Flask(__name__)
 def inicio():
     return render_template('index.html')
 
-
-
 @app.route('/api/ca/<ca>')
 def retornarInfoEPI(ca):
     epi = EPI(ca)

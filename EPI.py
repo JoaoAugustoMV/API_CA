@@ -1,36 +1,56 @@
 # pip install beautifulsoup4
-#
+
+import unicodedata
 import requests
 from bs4 import BeautifulSoup
 
 
 class EPI:
-  ca = ''
-  linhasTabela = []
-  epiJSON = {}
 
-  def __init__(self,  ca):
+  def __init__(self, ca):
+    self = self
     self.ca = ca
 
-  def receberLinhasTabela(self): # Web Scrapping da Tabela com os dados do EPI
-    url = f'https://meuca.com.br/{self.ca}'
-    html = requests.get(url).content
-    soup = BeautifulSoup(html, 'html.parser')
-    table = soup.table
-    self.linhasTabela = table.find_all('tr')
+# Div#box_result
+  def retornarBoxResult(self, ca):
+    url = f'https://consultaca.com/{ca}'
+    soup = BeautifulSoup(requests.get(url).content, features="html.parser") # HTML da pag
+    box_result = soup.find('div',id='box_result') # Div com os dados
+     # tag para guiar a raspagem
+    return box_result
 
-    return self.linhasTabela
+  def padraoString(self, string):
+    return unicodedata.normalize('NFD', string).encode('ascii', 'ignore').decode('utf8')
 
   def retornarJSON(self):
-    self.receberLinhasTabela()
-    for linha in self.linhasTabela:
-        if (linha.td):
-          nomeCampo = linha.th.getText().replace(' ', '')
-          dadoCampo = linha.td.div.getText()
-          if(nomeCampo == 'CA'):
-            dadoCampo = dadoCampo[:5]
-          elif(nomeCampo == 'Situação'):
-            dadoCampo = dadoCampo.split(' ')[0]
-          self.epiJSON[nomeCampo] = dadoCampo
-    return self.epiJSON
-## end EPI
+    box_result = self.retornarBoxResult(self.ca)
+    brs = box_result.find_all('br') 
+    # pegarTexto = ['Situação', 'Validade', 'Razão Social', 'Razão Social Importador', 'Site', 'N° do Laudo'] # Atributo que estão dentro de outra tag 
+    ignorarCampo = ["CA's"]
+    json = {} # Dicionario 
+    for br in brs[3:]:
+      chave = br.previous.replace(':', '') 
+      valor = br.nextSibling
+      if(chave in ignorarCampo):
+        continue
+      # if(chave in pegarTexto): 
+      try:
+        valor = valor.getText()
+      except:
+        return "Erro inesperado"
+
+      if ('Declaro' in br.previous): # Acabar com a raspagem
+        break
+      chave = self.padraoString(chave)
+      try:
+        valor = self.padraoString(valor)
+      except: # Alguns
+        valor = valor.getText()
+        valor = self.padraoString(valor)
+        if (chave == 'SituaAAo'):
+          chave == 'Situacao'
+      
+      json[chave] = valor
+    json['Equipamento'] = box_result.find('h1').getText()
+    json['CA'] = self.ca
+    return json

@@ -1,3 +1,11 @@
+.gitignore
+
 __pycache__
 ambienteVirtual
 .gcloudignore
+.vscode
+lib
+venv
+teste.py
+appengine_config.py
+deployGcloud.md
